@@ -106,7 +106,7 @@ Sentinel.prototype.createClientInternal = function(masterName, opts) {
             client.on('reconnecting', refreshEndpoints);
 
             function refreshEndpoints() {
-                client.connectionOption.port = "";
+                client.connectionOption.port = 0;
                 client.connectionOption.host = "";
                 resolver(self.endpoints, masterName, function(_err, ip, port) {
                     if (_err) {
